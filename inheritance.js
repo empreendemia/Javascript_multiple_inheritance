@@ -116,12 +116,14 @@ Nesse exemplo, vamos criar 4 classes A, B, C, Teste
 o diagrama seria:
                  __________          _________
                  |ClasseA |          |ClasseB|
+                 |--------|          |-------|
                  |+temp   |          |+temp  |
                  |________|          |+temp1 |
                     |                |_______|
                     |                   |
                     |                ___|_____
                     |                |ClasseC|
+                    |                |-------|
                     |                |+temp  |
                     |                |_______|
                     |                   |
