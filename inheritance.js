@@ -21,7 +21,7 @@ Function.prototype.inherits = function () {
 
             /* Salvar a classe em uma estrutura para utiliza-la futuramente */
             proto[Parent.name] = new Parent();
-            
+
             /* Colocar os atributos na classe herdeira */
             for (newmethod in Parent.prototype) {
                 if (Parent.prototype.hasOwnProperty(newmethod)) {
@@ -78,7 +78,7 @@ Function.prototype.inherits = function () {
             proto = this.getProto(),
             parentPosition,
             res;
-                    
+
         if (parent !== undefined) {
             /* Caso o antepassado seja setado pegue o método nele */
             if (method !== undefined) {
@@ -97,7 +97,7 @@ Function.prototype.inherits = function () {
                 }
             }
         }
-        
+
         /* Se o método foi encontrado, retornar um closure para aplica-lo ao objeto corrente */
         if (res !== undefined) {
             return function () {
@@ -138,55 +138,51 @@ Como o método ubber especifica de quem estamos chamando o método,
 este conflito é resolvido.
 */
 
+(function () {
+    "use strict";
 
-function classeA(){};
-classeA.prototype.temp = function(){
-    console.log(this.lala + ' Este metodo veio da classe A');
-};
+    function classeA() {}
+    classeA.prototype.temp = function () {
+        console.log(this.lala + ' Este metodo veio da classe A');
+    };
 
+    function classeB() {}
+    classeB.prototype.temp = function () {
+        console.log(this.lala + ' Este metodo veio da classe B');
+    };
+    classeB.prototype.temp1 = function () {
+        console.log(this.lala + ' testando hierarquia');
+    };
 
-function classeB(){};
-classeB.prototype.temp = function(){
-    console.log(this.lala + ' Este metodo veio da classe B');
-};
-classeB.prototype.temp1 = function(){
-    console.log(this.lala + ' testando hierarquia');
-};
+    function classeC() {}
+    classeC.inherits(classeB);
+    classeC.prototype.temp = function (ab) {
+        console.log(ab);
+        console.log(this.lala + ' Este metodo veio da classe C');
+    };
 
+    function Teste() {}
+    Teste.inherits(classeA, classeC);
+    console.log(Teste.getProto());
 
-function classeC(){};
-classeC.inherits(classeB);
-classeC.prototype.temp = function(ab){
-    console.log(ab);
-    console.log(this.lala + ' Este metodo veio da classe C');
-};
+    var teste = new Teste();
+    teste.lala = "oioi";
+    teste.temp1();
 
+    console.log('Testando heranca de metodos');
 
+    console.log('\nMetodo que ficou estancado na classe:');
+    teste.temp();
 
-function Teste(){};
-Teste.inherits(classeA, classeC);
-console.log(Teste.getProto());
+    console.log('\nChamada do metodo no pai sem dizer qual pai:');
+    teste.ubber('temp')();
 
+    console.log('\nChamada do metodo no pai especificando o pai(A):');
+    teste.ubber('temp', classeA)();
 
+    console.log('\nChamada do metodo no pai especificando o pai(B):');
+    teste.ubber('temp', classeB)();
 
-var teste = new Teste();
-teste.lala = "oioi";
-
-teste.temp1();
-
-console.log('Testando heranca de metodos');
-
-console.log('\nMetodo que ficou estancado na classe:');
-teste.temp();
-
-console.log('\nChamada do metodo no pai sem dizer qual pai:');
-teste.ubber('temp')();
-
-console.log('\nChamada do metodo no pai especificando o pai(A):');
-teste.ubber('temp', classeA)();
-
-console.log('\nChamada do metodo no pai especificando o pai(B):');
-teste.ubber('temp', classeB)();
-
-console.log('\nChamada do metodo no pai especificando o pai(C):');
-teste.ubber('temp', classeC)('eu tenho paramatro bunitinho');
+    console.log('\nChamada do metodo no pai especificando o pai(C):');
+    teste.ubber('temp', classeC)('eu tenho paramatro bunitinho');
+}());
