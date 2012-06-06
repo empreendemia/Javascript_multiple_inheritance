@@ -83,9 +83,10 @@ Object.prototype.instanceOf = function (parentclass) {
         parentPosition,
         res = false;
 
+    /* Percorrer todas as classes antepassada */
     for (parentPosition in proto) {
         if (proto.hasOwnProperty(parentPosition)) {
-            /* Caso seja encontrado o método guarda-lo */
+            /* Caso seja encontrada a classe mudar para true */
             if (proto[parentPosition] === parentclass) {
                 res = true;
             }
