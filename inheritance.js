@@ -67,7 +67,6 @@ Function.prototype.inherits = function () {
     return this;
 };
 
-
 /**
 * ubber
 * @author: Rafael Almeida Erthal Hermano (rafaerthal@gmail.com)
