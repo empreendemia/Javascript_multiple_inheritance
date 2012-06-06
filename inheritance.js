@@ -4,7 +4,7 @@
 * @since: 2012-06
 * 
 * @description: Método que implementa herança entre classes
-* @params: Classes que classe serão herdadas
+* @params: Classes que serão herdadas
 */
 Function.prototype.inherits = function () {
     "use strict";
