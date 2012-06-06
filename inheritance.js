@@ -1,6 +1,6 @@
 /**
 * inherits
-* @author: Rafael Almeida Erthal Hermano
+* @author: Rafael Almeida Erthal Hermano (rafaerthal@gmail.com)
 * @since: 2012-06
 * 
 * @description: Método que implementa herança entre classes
@@ -33,7 +33,7 @@ Function.prototype.inherits = function () {
 
     /**
     * getProto
-    * @author: Rafael Almeida Erthal Hermano
+    * @author: Rafael Almeida Erthal Hermano (rafaerthal@gmail.com)
     * @since: 2012-06
     * 
     * @description: Retorna todas as classes que o objeto herdou
@@ -66,7 +66,7 @@ Function.prototype.inherits = function () {
 
     /**
     * ubber
-    * @author: Rafael Almeida Erthal Hermano
+    * @author: Rafael Almeida Erthal Hermano (rafaerthal@gmail.com)
     * @since: 2012-06
     * 
     * @description: Retorna a implementação de um método em uma classe antepassada
