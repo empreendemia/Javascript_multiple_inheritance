@@ -1,7 +1,7 @@
 Javascript_multiple_inheritance
 ===============================
 
-Javascript multiple inheritance é um método que implementa herança multipla em classes.
+Javascript multiple inheritance é um método de implementação de herança multipla em classes.
 
 Para fazer uma classe herdar de outra, é simples. Primeiro, declaramos a classe a partir de seu construtor:
 
