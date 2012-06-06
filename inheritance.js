@@ -76,6 +76,7 @@ Function.prototype.inherits = function () {
 * @param(method) : nome do método que será chamado
 * @param(parent) : nome do antepassado que irá fornecer o método(opcional)
 * 
+* @throws : Parent not found
 * @throws : Method not found
 * @throws : Method undefined
 */
@@ -90,10 +91,14 @@ Object.prototype.ubber = function (method, parent) {
     if (parent !== undefined) {
         /* Caso o antepassado seja setado pegue o método nele */
         if (method !== undefined) {
-            if (proto[parent.name] !== undefined && proto[parent.name][method] !== undefined) {
-                res = proto[parent.name][method];
+            if (proto[parent.name] !== undefined) {
+                if (proto[parent.name][method] !== undefined) {
+                    res = proto[parent.name][method];
+                } else {
+                    throw "Method not found";
+                }
             } else {
-                throw "Method not found";
+                throw "Parent not found";
             }
         } else {
             throw "Method undefined";
