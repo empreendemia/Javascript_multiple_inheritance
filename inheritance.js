@@ -84,7 +84,11 @@ Function.prototype.inherits = function () {
             if (method !== undefined) {
                 if (proto[parent.name] !== undefined && proto[parent.name][method] !== undefined) {
                     res = proto[parent.name][method];
+                } else {
+                    throw "Method not found";
                 }
+            } else {
+                throw "Method undefined";
             }
         } else {
             /* Procurar por antepassados que tenham o método requisitado */
@@ -96,14 +100,15 @@ Function.prototype.inherits = function () {
                     }
                 }
             }
+            if (res === undefined) {
+                throw "Method not found";
+            }
         }
 
         /* Se o método foi encontrado, retornar um closure para aplica-lo ao objeto corrente */
-        if (res !== undefined) {
-            return function () {
-                return res.apply(that, arguments);
-            };
-        }
+        return function () {
+            return res.apply(that, arguments);
+        };
     };
 
     return this;
