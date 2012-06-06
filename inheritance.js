@@ -67,6 +67,34 @@ Function.prototype.inherits = function () {
     return this;
 };
 
+
+/**
+* instanceOf
+* @author: Rafael Almeida Erthal Hermano (rafaerthal@gmail.com)
+* @since: 2012-06
+* 
+* @description: Retorna se o objeto é instância ou herdeiro de uma classe
+* @param(parentclass) : nome do antepassado que passara pela checagem
+*/
+Object.prototype.instanceOf = function (parentclass) {
+    "use strict";
+
+    var proto = this.getProto(),
+        parentPosition,
+        res = false;
+
+    for (parentPosition in proto) {
+        if (proto.hasOwnProperty(parentPosition)) {
+            /* Caso seja encontrado o método guarda-lo */
+            if (proto[parentPosition] === parentclass) {
+                res = true;
+            }
+        }
+    }
+
+    return res;
+};
+
 /**
 * ubber
 * @author: Rafael Almeida Erthal Hermano (rafaerthal@gmail.com)
