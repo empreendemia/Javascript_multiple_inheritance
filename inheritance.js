@@ -72,6 +72,9 @@ Function.prototype.inherits = function () {
     * @description: Retorna a implementação de um método em uma classe antepassada
     * @param(method) : nome do método que será chamado
     * @param(parent) : nome do antepassado que irá fornecer o método(opcional)
+    * 
+    * @throws : Method not found
+    * @throws : Method undefined
     */
     this.prototype.ubber = function (method, parent) {
         var that = this,
