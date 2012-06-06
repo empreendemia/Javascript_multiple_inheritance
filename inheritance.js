@@ -64,57 +64,60 @@ Function.prototype.inherits = function () {
         return res;
     };
 
-    /**
-    * ubber
-    * @author: Rafael Almeida Erthal Hermano (rafaerthal@gmail.com)
-    * @since: 2012-06
-    * 
-    * @description: Retorna a implementação de um método em uma classe antepassada
-    * @param(method) : nome do método que será chamado
-    * @param(parent) : nome do antepassado que irá fornecer o método(opcional)
-    * 
-    * @throws : Method not found
-    * @throws : Method undefined
-    */
-    this.prototype.ubber = function (method, parent) {
-        var that = this,
-            proto = this.getProto(),
-            parentPosition,
-            res;
+    return this;
+};
 
-        if (parent !== undefined) {
-            /* Caso o antepassado seja setado pegue o método nele */
-            if (method !== undefined) {
-                if (proto[parent.name] !== undefined && proto[parent.name][method] !== undefined) {
-                    res = proto[parent.name][method];
-                } else {
-                    throw "Method not found";
-                }
+
+/**
+* ubber
+* @author: Rafael Almeida Erthal Hermano (rafaerthal@gmail.com)
+* @since: 2012-06
+* 
+* @description: Retorna a implementação de um método em uma classe antepassada
+* @param(method) : nome do método que será chamado
+* @param(parent) : nome do antepassado que irá fornecer o método(opcional)
+* 
+* @throws : Method not found
+* @throws : Method undefined
+*/
+Object.prototype.ubber = function (method, parent) {
+    "use strict";
+
+    var that = this,
+        proto = this.getProto(),
+        parentPosition,
+        res;
+
+    if (parent !== undefined) {
+        /* Caso o antepassado seja setado pegue o método nele */
+        if (method !== undefined) {
+            if (proto[parent.name] !== undefined && proto[parent.name][method] !== undefined) {
+                res = proto[parent.name][method];
             } else {
-                throw "Method undefined";
-            }
-        } else {
-            /* Procurar por antepassados que tenham o método requisitado */
-            for (parentPosition in proto) {
-                if (proto.hasOwnProperty(parentPosition)) {
-                    /* Caso seja encontrado o método guarda-lo */
-                    if (proto[parentPosition][method] !== undefined) {
-                        res = proto[parentPosition][method];
-                    }
-                }
-            }
-            if (res === undefined) {
                 throw "Method not found";
             }
+        } else {
+            throw "Method undefined";
         }
+    } else {
+        /* Procurar por antepassados que tenham o método requisitado */
+        for (parentPosition in proto) {
+            if (proto.hasOwnProperty(parentPosition)) {
+                /* Caso seja encontrado o método guarda-lo */
+                if (proto[parentPosition][method] !== undefined) {
+                    res = proto[parentPosition][method];
+                }
+            }
+        }
+        if (res === undefined) {
+            throw "Method not found";
+        }
+    }
 
-        /* Se o método foi encontrado, retornar um closure para aplica-lo ao objeto corrente */
-        return function () {
-            return res.apply(that, arguments);
-        };
+    /* Se o método foi encontrado, retornar um closure para aplica-lo ao objeto corrente */
+    return function () {
+        return res.apply(that, arguments);
     };
-
-    return this;
 };
 
 /*----------------------------------------------------------------------------*/
