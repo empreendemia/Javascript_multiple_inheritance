@@ -97,7 +97,7 @@ Object.prototype.instanceOf = function (parentclass) {
 
     var proto = this.getProto(),
         parentPosition,
-        res = false;
+        res = this instanceof parentclass;
 
     /* Percorrer todas as classes antepassada */
     for (parentPosition in proto) {
