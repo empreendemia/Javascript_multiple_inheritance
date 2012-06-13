@@ -19,10 +19,8 @@ Javascript_multiple_inheritance
 #####O método ubber também é adicionado a todos os objetos. Este método chama a implementação original de determinado método caso ela tenha sido sobrescrito.
 
 #####Para utilizarmos o ubber existem duas formas:
-*Explicitando a classe antepassada que você quer chamar o método:
-'obj.ubber('methodName', p1)(arguments);'
+* Explicitando a classe antepassada que você quer chamar o método: 'obj.ubber('methodName', p1)(arguments);'
   
-*Omitindo classe antepassada que você quer chamar o método:
-'obj.ubber('methodName')(arguments);'
+* Omitindo classe antepassada que você quer chamar o método: 'obj.ubber('methodName')(arguments);'
   
 ######Note que ao explicitar de qual classe você chama o método, você evita problemas de conflito de nomes, um problema recorrente na herança multipla.
