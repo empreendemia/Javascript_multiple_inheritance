@@ -1,28 +1,28 @@
 /*
-* Copyright 2012 Rafael Almeida Erthal Hermano
-* 
-* This program is free software: you can redistribute it and/or modify
-* it under the terms of the GNU General Public License as published by
-* the Free Software Foundation, either version 3 of the License, or
-* (at your option) any later version.
-* 
-* This program is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-* GNU General Public License for more details.
-*
-* You should have received a copy of the GNU General Public License
-* along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ * Copyright 2012 Rafael Almeida Erthal Hermano
+ * 
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 
 /**
-* inherits
-* @author: Rafael Almeida Erthal Hermano (rafaerthal@gmail.com)
-* @since: 2012-06
-* 
-* @description: Método que implementa herança entre classes
-* @params: Classes que serão herdadas
-*/
+ * inherits
+ * @author: Rafael Almeida Erthal Hermano (rafaerthal@gmail.com)
+ * @since: 2012-06
+ * 
+ * @description: Método que implementa herança entre classes
+ * @params: Classes que serão herdadas
+ */
 Function.prototype.inherits = function () {
     "use strict";
 
@@ -49,12 +49,12 @@ Function.prototype.inherits = function () {
     }
 
     /**
-    * getProto
-    * @author: Rafael Almeida Erthal Hermano (rafaerthal@gmail.com)
-    * @since: 2012-06
-    * 
-    * @description: Retorna todas as classes que o objeto herdou
-    */
+     * getProto
+     * @author: Rafael Almeida Erthal Hermano (rafaerthal@gmail.com)
+     * @since: 2012-06
+     * 
+     * @description: Retorna todas as classes que o objeto herdou
+     */
     this.prototype.getProto = this.getProto = function () {
         var res = proto || {},
             current,
@@ -85,13 +85,13 @@ Function.prototype.inherits = function () {
 };
 
 /**
-* instanceOf
-* @author: Rafael Almeida Erthal Hermano (rafaerthal@gmail.com)
-* @since: 2012-06
-* 
-* @description: Retorna se o objeto é instância ou herdeiro de uma classe
-* @param(parentclass) : nome do antepassado que passara pela checagem
-*/
+ * instanceOf
+ * @author: Rafael Almeida Erthal Hermano (rafaerthal@gmail.com)
+ * @since: 2012-06
+ * 
+ * @description: Retorna se o objeto é instância ou herdeiro de uma classe
+ * @param(parentclass) : nome do antepassado que passara pela checagem
+ */
 Object.prototype.instanceOf = function (parentclass) {
     "use strict";
 
@@ -113,18 +113,18 @@ Object.prototype.instanceOf = function (parentclass) {
 };
 
 /**
-* ubber
-* @author: Rafael Almeida Erthal Hermano (rafaerthal@gmail.com)
-* @since: 2012-06
-* 
-* @description: Retorna a implementação de um método em uma classe antepassada
-* @param(method) : nome do método que será chamado
-* @param(parent) : nome do antepassado que irá fornecer o método(opcional)
-* 
-* @throws : Parent not found
-* @throws : Method not found
-* @throws : Method undefined
-*/
+ * ubber
+ * @author: Rafael Almeida Erthal Hermano (rafaerthal@gmail.com)
+ * @since: 2012-06
+ * 
+ * @description: Retorna a implementação de um método em uma classe antepassada
+ * @param(method) : nome do método que será chamado
+ * @param(parent) : nome do antepassado que irá fornecer o método(opcional)
+ * 
+ * @throws : Parent not found
+ * @throws : Method not found
+ * @throws : Method undefined
+ */
 Object.prototype.ubber = function (method, parent) {
     "use strict";
 
